@@ -1,0 +1,83 @@
+body {
+    background-image: url("https://img00.deviantart.net/1e39/i/2012/164/f/8/fake_lotto_premade_background_by_viktoria_lyn-d53cacm.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#pick1 {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    left: 240px;
+    top: 375px;
+} 
+
+#pick2 {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    left: 415px;
+    top: 375px;
+}
+
+#pick3 {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    left: 580px;
+    top: 375px;
+}
+
+#pick4 {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    left: 780px;
+    top: 375px;
+}
+
+#pick5 {
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    left: 960px;
+    top: 375px;
+}
+
+footer {
+    color: white;
+    position: absolute;
+    width: 99%;
+    bottom: 0;
+    text-align: center;
+}
+
+#mega {
+    position: absolute;
+    left: 1070px;
+    top: 375px;
+}
+
+#number {
+    color: red;
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+#theader {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: underline;
+    color: silver;
+}
+
+#greet {
+    color: silver;
+    text-align: center;
+    position: absolute;
+    font-size: 2em;
+    font-weight: bold;
+    left: 475px;
+    top: 300px;
+}
