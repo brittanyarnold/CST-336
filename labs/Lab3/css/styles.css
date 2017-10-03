@@ -1,0 +1,50 @@
+body {
+    background-image: url("http://www.casino-capers.org/wp/wp-content/uploads/2015/01/Casino-Capers-Web-Background-2015.jpg");
+    color: silver;
+    font-size: 2em;
+    font-family: 'Wendy One', sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: silver;
+    top:0;
+}
+
+#winner {
+    font-size: 2.5em;
+    color: red;
+    text-align: center;
+}
+
+#pic {
+    text-align: left;
+}
+
+#hand {
+    text-align: center;
+}
+
+#score {
+    color: red;
+    font-family: bold;
+    font-size: 2em;
+}
+
+footer {
+    font-size: .6em;
+    text-align: center;
+}
+
+#playAgain {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
