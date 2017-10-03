@@ -1,0 +1,57 @@
+body {
+    background-image: url("http://cdn.wallpapersafari.com/68/2/aW2ZQD.jpg");
+    color: white;
+    text-align:center;
+}
+
+header, nav, footer, #content {
+	text-align:center;
+	width:850px;
+	margin: 0 auto;
+}
+
+nav a {
+	padding:15px;
+	padding-bottom:4px;
+	font-size:1.8em;
+	text-decoration: none;
+	color:#35ef0b;
+}
+
+nav a:hover {
+	border-bottom: 2px #419df4 solid;
+	font-size: 2em;
+	transition: .9s;
+}
+
+footer {
+	clear:left;
+	color: #f90707;
+}
+
+ul {
+   	text-align: left;
+	padding-left: 200px;
+}
+
+h1 {
+	font-family: 'Orbitron', sans-serif;
+	font-size:4.2em;
+	margin:0 auto;
+	color: #f90707;
+	font:bold;
+	text-shadow: 3px 3px gray;
+}
+
+#fcc {
+	text-align:center;
+}
+
+#line {
+	width:50%;
+}
+
+#youTube {
+	width:854px;
+	height:480px;
+}
