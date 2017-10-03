@@ -1,0 +1,36 @@
+    body{
+        opacity:0.9;
+        width:100%;
+        text-align:center;
+        color:yellow;
+    }
+    
+    input {
+        font-size: 3em;
+        color: black;
+        border-radius:10px;
+    }
+    
+    #carousel-example-generic {
+        display: block;
+         margin: 0 auto;   
+         width: 100%;
+         text-align: center;
+         background-size:cover;
+         max-width: 100%;
+         height: auto;
+        line-height: 1;
+    }
+    
+     #radioDiv {
+        display:inline-block; 
+        color:black; 
+        text-align:left; 
+        background-color:#ffcce0; 
+        padding:10px; 
+        border-radius: 10px;
+    }
+    
+    #queryText {
+        font-size: 350%;
+    }
