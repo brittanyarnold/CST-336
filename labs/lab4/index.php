@@ -99,6 +99,7 @@
                  <option> Food </option>
                  <option> Video Games </option>
                  <option> Music </option>
+                 <option> Sports </option>
             </select><br /><br />
             <input type="submit" value="Submit" style="background-color:#ffcce0; color:black; font-size:1.5em" />
         </form>
