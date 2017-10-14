@@ -27,6 +27,7 @@
             <h1 id="label-2">HOMEWORK:</h1>
             <a href="/homework/homework1/index.php" target="_blank">HW 1</a>
             <a href="/homework/homework2/index.php" target="_blank">HW 2</a>
+	    <a href="/homework/homework3/index.php" target="_blank">HW 3</a>
         </div>
     </body>
 </html>
