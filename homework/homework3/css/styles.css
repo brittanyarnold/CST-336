@@ -1,0 +1,12 @@
+body {
+    background-image: url('http://2guyshazelpark.com/wp-content/uploads/2012/04/twoguys_background5.jpg');
+    background-size: 100%;
+}
+
+#main-content, #receipt {
+    text-align: center;
+}
+
+#receipt {
+    font-weight: bold;
+}
