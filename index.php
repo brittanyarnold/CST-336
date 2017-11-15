@@ -30,5 +30,9 @@
             <a href="/homework/homework2/index.php" target="_blank">HW 2</a>
 	    <a href="/homework/homework3/index.php" target="_blank">HW 3</a>
         </div>
+	<div id="proj">
+            <h1 id="label-3">PROJECTS:</h1>
+            <a href="/projects/project2/index.php" target="_blank">Otter Shopping Mall</a>
+        </div>
     </body>
 </html>
