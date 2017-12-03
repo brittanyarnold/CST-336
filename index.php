@@ -24,6 +24,7 @@
             <a href="/labs/lab4/index.php" target="_blank" >Lab 4</a>
 	    <a href="/labs/lab6/index.php" target="_blank" >Lab 6</a>
 	    <a href="/labs/lab7/index.html" target="_blank" >Lab 7</a>
+            <a href="/labs/lab8/index.html" target="_blank" >Lab 8</a>
         </div>
         <div id="hw">
             <h1 id="label-2">HOMEWORK:</h1>
