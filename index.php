@@ -35,6 +35,7 @@
 	<div id="proj">
             <h1 id="label-3">PROJECTS:</h1>
             <a href="/projects/project2/index.php" target="_blank">Otter Shopping Mall</a>
+            <a href="/projects/final/index.php" target="_blank">Otter Movie Ticket Search</a>
         </div>
     </body>
 </html>
