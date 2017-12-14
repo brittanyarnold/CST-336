@@ -47,3 +47,6 @@ table, th, td ,tr {
 table[align="center"] {
     margin: 0 auto;
 }
+#controls {
+    text-align: center;
+}
