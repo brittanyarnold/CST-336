@@ -24,7 +24,7 @@ function loginProcess() {
             echo "Wrong Username or password";
         } else {
             $_SESSION['username'] = $record['userName'];
-            $_SESSION['adminName'] = $record['firstName'] . "  " . $record['lastName'];
+            $_SESSION['adminName'] = $record['firstName']."  ".$record['lastName'];
             header("Location: admin.php"); //redirecting to admin.php
         }        
     }
@@ -35,9 +35,7 @@ function loginProcess() {
 <html>
     <head>
         <title> Admin Login  </title>
-        <style>
-            @import url("css/styles.css");
-        </style>
+        <link href="styles.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

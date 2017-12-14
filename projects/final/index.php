@@ -1,6 +1,11 @@
-<?php 
-include 'functions.php';
-session_start();
+<?php
+    include 'functions.php';
+    session_start();
+    function loginProcess() {
+    if (isset($_GET['loginPage'])) {  //checks if form has been submitted
+        header("Location: login.php"); //redirecting to login.php
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,97 +13,154 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Otter Movie Theatre  </title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="styles.css" rel="stylesheet" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <title> Otter Ticket Search </title>
+        <style>
+            @import url("styles.css");            
+        </style>
     </head>
+    
     <body>
-        <h1>OTTER MOVIE THEATRE</h1>
-        <div id='main-content'>
-            <form method="post">
-                Sort By Length
+        <h1> Welcome to Otter Movie Ticket Search </h1>
+        <div class="main">
+            <form method="POST">
+                Search by Length
                 <select name="sort">
-                <option value="" >- Select One - </option>
-                    <option value="asc">Ascending</option>
-                    <option value="dec">Descending</option>
+                    <option value="">- Select One - </option>
+                    <option value="DESC">Longest to Shortest</option>
+                    <option value="ASC">Shortest to Longest</option></option>
                 </select>
-                <br>
-                Search by Theatre
+                  
+                <br>   
+                Search by Theatre 
                 <select name="theatre">
-                    <option value="" >- Select One - </option>
-                    <?=getAllTheatres() ?>
+                    <option value="">- Select One - </option>
+                    <?=getAllTheatres()?>
                 </select>
                 <br>
                 Search by Movie
                 <select name="movie">
-                    <option value="" >- Select One - </option>
-                    <?=getAllMovies() ?>
+                    <option value="">- Select One - </option>
+                    <?=getAllMovies()?>
                 </select>
                 <br>
-                <input type="submit" name="submit" value="Submit">
+                <input type="submit" name= "submission" value="Submit">
             </form>
             
             <?php
-            if(isset($_POST['submit'])) {
+            echo "<link rel='stylesheet' type='text/css' href='styles.css' />"; 
+            if(isset($_POST['submission'])) {
                 $sort = $_POST['sort'];
                 $theatre = $_POST['theatre'];
-                $movie =$_POST['movie'];
-            }
-            
-            if(!empty($theatre)) {
-                $results = searchByTheatre();
-                echo "<table>";
-                echo "<tr>";
-                echo "<th>  Theatre Name </th>";
-                echo "<th>  Phone Number </th>";
-                echo "<th>  Adress</th>";
-                echo "<th>  City </th>";
-                echo "<th>  State </th>";
-                echo "<th>  Zicode </th>";
-                echo "<th>  Movie Title </th>";
-                echo "<th>  Runtime </th>";
-                echo "<th>  Rating </th>";
-                echo "<th>  Start Time</th>";
-                echo "<th>  Auditorium </th>";
-                echo "</tr>";
-                foreach($results as $result) {
+                $movie = $_POST['movie'];
+                if(!empty($movie)) { //user chose to search by movie
+                    $users = searchByMovie();
+                    echo "<table style='margin:0px auto;' border='0'>";
                     echo "<tr>";
-                    echo "<td>".$result['name']."</td>"."<td>".$result['phone_number']."</td>"."<td>".$result['street_address']."</td>"."<td>".$result['city']."</td>"."<td>".$result['state']."</td>"."<td>".$result['zip_code']."</td>"."<td>".$result['title']."</td>"."<td>".$result['length']."</td>"."<td>".$result['rating']."</td>"."<td>".$result['start_time']."</td>"."<td>".$result['auditorium']."</td>";
+                    echo "<th>Title</th>";
+                    echo "<th>Length</th>";
+                    echo "<th>Rating</th>";
+                    echo "<th>Theatre</th>";
+                    echo "<th>Address</th>";
+                    echo "<th>City</th>";
+                    echo "<th>Zip</th>";
+                    echo "<th>Start</th>";
+                    echo "<th>Auditorium</th>";
                     echo "</tr>";
-                }
-                echo "</table>";
-            }
-            
-            if(empty($sort) and !empty($movie)) {
-                $results = searchByMovie();
-                echo "<table>";
-                echo "<tr>";
-                echo "<th>  Theatre Name </th>";
-                echo "<th>  Phone Number </th>";
-                echo "<th>  Adress</th>";
-                echo "<th>  City </th>";
-                echo "<th>  State </th>";
-                echo "<th>  Zicode </th>";
-                echo "<th>  Movie Title </th>";
-                echo "<th>  Runtime </th>";
-                echo "<th>  Rating </th>";
-                echo "<th>  Start Time</th>";
-                echo "<th>  Auditorium </th>";
-                echo "</tr>";
-                foreach($results as $result) {
+                    foreach($users as $user) {
+                        echo "<tr>";
+                        echo "<td>".$user['title']."</td><td>".$user['length']."</td><td>".$user['rating']."</td><td>".$user['name']."</td><td>".$user['street_address']."</td><td>".$user['city']."</td><td>".$user['zip_code']."</td><td>".$user['start_time']."</td><td>".$user['auditorium'];
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }    
+                else if (empty($sort) and !empty($theatre)) { //user chose to search by theatre
+                    $users = searchByTheatre();
+                    echo "<table style='margin:0px auto;' border='0'>";
                     echo "<tr>";
-                    echo "<td>".$result['name']."</td>"."<td>".$result['phone_number']."</td>"."<td>".$result['street_address']."</td>"."<td>".$result['city']."</td>"."<td>".$result['state']."</td>"."<td>".$result['zip_code']."</td>"."<td>".$result['title']."</td>"."<td>".$result['length']."</td>"."<td>".$result['rating']."</td>"."<td>".$result['start_time']."</td>"."<td>".$result['auditorium']."</td>";
+                    echo "<th>Title</th>";
+                    echo "<th>Length</th>";
+                    echo "<th>Rating</th>";
+                    echo "<th>Theatre</th>";
+                    echo "<th>Address</th>";
+                    echo "<th>City</th>";
+                    echo "<th>Zip</th>";
+                    echo "<th>Start</th>";
+                    echo "<th>Auditorium</th>";
                     echo "</tr>";
+                    foreach($users as $user) {
+                        echo "<tr>";
+                        echo "<td>".$user['title']."</td><td>".$user['length']."</td><td>".$user['rating']."</td><td>".$user['name']."</td><td>".$user['street_address']."</td><td>".$user['city']."</td><td>".$user['zip_code']."</td><td>".$user['start_time']."</td><td>".$user['auditorium'];
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }    
+                else if(!empty($sort) and empty($theatre)) { //user wants search of movies
+                    $users = movieTimeList();
+                    echo "<table style='margin:0px auto;' border='0'>";
+                    echo "<tr>";
+                    echo "<th>Title</th>";
+                    echo "<th>Length</th>";
+                    echo "<th>Rating</th>";
+                    echo "<th>Theatre</th>";
+                    echo "<th>Address</th>";
+                    echo "<th>City</th>";
+                    echo "<th>Zip</th>";
+                    echo "<th>Start</th>";
+                    echo "<th>Auditorium</th>";
+                    echo "</tr>";
+                    foreach($users as $user) {
+                        echo "<tr>";
+                        echo "<td>".$user['title']."</td><td>".$user['length']."</td><td>".$user['rating']."</td><td>".$user['name']."</td><td>".$user['street_address']."</td><td>".$user['city']."</td><td>".$user['zip_code']."</td><td>".$user['start_time']."</td><td>".$user['auditorium'];
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }    
+                else if (!empty($sort) and !empty($theatre)) { //search by length and theatre
+                    $users = searchByTheatre();
+                    echo "<table style='margin:0px auto;' border='0'>";
+                    echo "<tr>";
+                    echo "<th>Title</th>";
+                    echo "<th>Length</th>";
+                    echo "<th>Rating</th>";
+                    echo "<th>Theatre</th>";
+                    echo "<th>Address</th>";
+                    echo "<th>City</th>";
+                    echo "<th>Zip</th>";
+                    echo "<th>Start</th>";
+                    echo "<th>Auditorium</th>";
+                    echo "</tr>";
+                    foreach($users as $user) {
+                        echo "<tr>";
+                        echo "<td>".$user['title']."</td><td>".$user['length']."</td><td>".$user['rating']."</td><td>".$user['name']."</td><td>".$user['street_address']."</td><td>".$user['city']."</td><td>".$user['zip_code']."</td><td>".$user['start_time']."</td><td>".$user['auditorium'];
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else { //display all data
+                    $users = userList();
+                    echo "<table style='margin:0px auto;' border='0'>";
+                    echo "<tr>";
+                    echo "<th>Title</th>";
+                    echo "<th>Length</th>";
+                    echo "<th>Rating</th>";
+                    echo "<th>Theatre</th>";
+                    echo "<th>Address</th>";
+                    echo "<th>City</th>";
+                    echo "<th>Zip</th>";
+                    echo "<th>Start</th>";
+                    echo "<th>Auditorium</th>";
+                    echo "</tr>";
+                    foreach($users as $user) {
+                        echo "<tr>";
+                        echo "<td>".$user['title']."</td><td>".$user['length']."</td><td>".$user['rating']."</td><td>".$user['name']."</td><td>".$user['street_address']."</td><td>".$user['city']."</td><td>".$user['zip_code']."</td><td>".$user['start_time']."</td><td>".$user['auditorium'];
+                        echo "</tr>";
+                    }
+                    echo "</table>";
                 }
-                echo "</table>";
             }
-            
-            ?>
-        </div>
+        ?>
         <form action="login.php">
-            <input type="submit" value="Sign In As Admin" />
+            <input type="submit" name="loginPage" value="Admin Login"/>
         </form>
+        </div>
     </body>
 </html>

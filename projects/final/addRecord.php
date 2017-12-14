@@ -7,25 +7,21 @@ if (isset($_GET['addRecord'])) {  //the add form has been submitted
              VALUES
              (:title, :length, :rating)";
     $np = array();
-    
     $np[':title'] = $_GET['title'];
     $np[':length'] = $_GET['length'];
     $np[':rating'] = $_GET['rating'];
-    
     $stmt=$conn->prepare($sql);
     $stmt->execute($np);
-    
     echo "Movie was added!";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
     <head>
         <title>Admininstration: Add New Movie</title>
         <style>
-            @import url("css/styles.css");
+            @import url("styles.css");
         </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
